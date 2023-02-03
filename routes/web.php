@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\BalaiController;
 use App\Http\Controllers\DataPetugasController;
+use App\Http\Controllers\PeraturanController;
+use App\Models\Peraturan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -22,5 +25,7 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('profilBalai', BalaiController::class);
     Route::resource('dataPetugas', DataPetugasController::class);
+    Route::resource('peraturan', PeraturanController::class);
 });

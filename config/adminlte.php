@@ -318,7 +318,7 @@ return [
         [
             'can' => ['isAdmin','isKepala'],
             'text' => 'Profil Balai',
-            'url'  => 'admin/settings',
+            'url'  => 'profilBalai',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
@@ -346,7 +346,7 @@ return [
                 ],
                 [
                     'text' => 'Data Peraturan',
-                    'url'  => '#',
+                    'url'  => 'peraturan',
                 ],                
             ]
         ],
