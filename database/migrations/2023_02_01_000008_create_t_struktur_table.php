@@ -27,7 +27,7 @@ return new class extends Migration
             $table->increments('id_struktur');
             $table->string('nama')->nullable();
             $table->string('jabatan')->nullable();
-            $table->unsignedBigInteger('id_balai');
+            $table->unsignedBigInteger('id_bagan_struktur');
 
 
         });

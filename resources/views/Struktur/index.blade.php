@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content_header')
-<h1>{{ Str::title(Str::replaceArray('-',[' '],'Peraturan Balai' ?? '')) }}</h1>
+<h1>{{ Str::title(Str::replaceArray('-',[' '],' Struktur Organisasi' ?? '')) }}</h1>
 @stop
 
 @section('card-header-extra')
@@ -16,7 +16,9 @@
     <thead>
         <tr>
             <th style="width: 10%;">No</th>
-            <th>Nama Peraturan</th>
+            <th>Nama  </th>
+            <th>Bagan Struktur</th>
+            <th>Jabatan</th>
             <th>Aksi</th>
         </tr>
     </thead>
@@ -24,17 +26,15 @@
         @foreach ($data as $no => $item)
             <tr>
                 <td>{{ ++$no }}</td>
-                <td>{{ $item->judul }}</td>
+                <td>{{ $item->nama }}</td>
+                <td>{{ $item->jabatan }}</td>
+                <td>{{ $item->namaBagan }}</td>
                 <td>
-                    <a href="#popup-pdf" class="btn btn-sm  btn-info open-popup">lihat</a>
-                    <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$item->id_peraturan}})"
+                <a href="{{ route($modul.'.edit', $item->id_struktur) }}" id="btnEdit" title="{{ $item->nama }}" class="btn btn-sm btn-success"><i class="material-icons md-edit"></i> Edit</a>
+
+                    <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$item->id_struktur}})"
                         data-target="#DeleteModal" class="btn btn-sm btn-danger"><i class="material-icons md-delete"></i>
                         Delete</a>
-                        <div id="popup-pdf" class="mfp-hide" style="text-align:center;">
-                            <iframe
-                                src="{!! asset('uploads/'. $item->pdf) !!}"
-                                align="top" height="650" width="100%" frameborder="0" scrolling="auto"></iframe>
-                        </div>
                 </td>
             </tr>
         @endforeach
@@ -44,7 +44,7 @@
 </table>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Tambah Data Balai</h5>
@@ -58,15 +58,26 @@
                 @csrf
                
                 <div class="form-group row">
-                    <div class="label col-md-3">Nama Peraturan</div>
+                    <div class="label col-md-3">Nama </div>
                     <div class="col-md-9">
-                        <input type="text" name="judul" id="judul" class="form-control  mt-2" placeholder="Masukan Nama Peraturan">
+                        <input type="text" name="nama" id="nama" class="form-control  mt-2" placeholder="Masukan Nama Bagan Struktur">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="label col-md-3">Upload File</div>
+                    <div class="label col-md-3">Pilih Bagan Struktur</div>
                     <div class="col-md-9">
-                        <input type="file" name="pdf" id="pdf">
+                        <select name="id_bagan_struktur" id="" class="form-control">
+                            <option> Pilih jabatan bagan</option>
+                            @foreach ($bagan as $item)
+                                <option value="{{ $item->id_bagan_struktur }}">{{ $item->nama }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="label col-md-3">Jabatan</div>
+                    <div class="col-md-9">
+                        <input type="text" name="jabatan" id="jabatan" class="form-control  mt-2" placeholder="Masukan Jabatan">
                     </div>
                 </div>
         </div>
@@ -79,14 +90,13 @@
       </div>
     </div>
   </div>
-{{--  <div  id="editModal" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div  id="editModal" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog "  role="document">
         <div class="modal-content" id="detail_edit">
            
         </div>
   </div>
-</div>  --}}
-
+</div>
 @endsection
 @include('layouts.script.delete')
 
@@ -94,23 +104,12 @@
 
 @section('js')
 <script>
-    $(document).ready(function () {
-        $('.open-popup').magnificPopup({
-        type: 'inline',
-        fixContentPos: true,
-        duration: 300,
-        closeBtnInside: false,
-        preloader: false,
-        removalDelay: 160,
-        mainClass: 'mfp-fade'
-        });
-        })
 $("#myTable").DataTable({
     "autoWidth": false,
     "responsive": true
 });
 
-{{--  $('body').on('click', '#btnEdit', function (event) {
+$('body').on('click', '#btnEdit', function (event) {
     event.preventDefault();
     var me = $(this),
         title = me.attr('title');
@@ -128,6 +127,6 @@ $("#myTable").DataTable({
         }
     });
     $('#editModal').modal('show');
-});  --}}
+});
 </script>
 @endsection

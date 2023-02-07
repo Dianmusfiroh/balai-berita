@@ -28,6 +28,8 @@ return new class extends Migration
             $table->string('judul')->nullable();
             $table->string('foto')->nullable();
             $table->text('deskripsi')->nullable();
+            $table->timestamps();
+
             $table->unsignedBigInteger('id_balai');
 
         });

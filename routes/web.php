@@ -1,8 +1,13 @@
 <?php
 
+use App\Http\Controllers\BaganStrukturOrganisasiController;
 use App\Http\Controllers\BalaiController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DataPetugasController;
 use App\Http\Controllers\PeraturanController;
+use App\Http\Controllers\StrukturOrganisasiController;
+use App\Http\Controllers\TugasBalaiController;
+use App\Models\Berita;
 use App\Models\Peraturan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -27,5 +32,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('profilBalai', BalaiController::class);
     Route::resource('dataPetugas', DataPetugasController::class);
-    Route::resource('peraturan', PeraturanController::class);
+    Route::resource('dataMaster/strukturOrganisasi', StrukturOrganisasiController::class);
+    Route::resource('dataMaster/baganstrukturOrganisasi', BaganStrukturOrganisasiController::class);
+    Route::resource('dataMaster/peraturan', PeraturanController::class);
+    Route::resource('dataMaster/tugasBalai', TugasBalaiController::class);
+    Route::resource('berita', BeritaController::class);
 });

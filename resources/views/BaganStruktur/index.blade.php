@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content_header')
-<h1>{{ Str::title(Str::replaceArray('-',[' '],'Peraturan Balai' ?? '')) }}</h1>
+<h1>{{ Str::title(Str::replaceArray('-',[' '],'Bagan Struktur Organisasi' ?? '')) }}</h1>
 @stop
 
 @section('card-header-extra')
@@ -16,7 +16,7 @@
     <thead>
         <tr>
             <th style="width: 10%;">No</th>
-            <th>Nama Peraturan</th>
+            <th>Nama Bagan Struktur</th>
             <th>Aksi</th>
         </tr>
     </thead>
@@ -24,17 +24,13 @@
         @foreach ($data as $no => $item)
             <tr>
                 <td>{{ ++$no }}</td>
-                <td>{{ $item->judul }}</td>
+                <td>{{ $item->nama }}</td>
                 <td>
-                    <a href="#popup-pdf" class="btn btn-sm  btn-info open-popup">lihat</a>
-                    <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$item->id_peraturan}})"
+                {{--  <a href="{{ route($modul.'.edit', $item->id) }}" id="btnEdit" title="{{ $item->judul }}" class="btn btn-sm btn-success"><i class="material-icons md-edit"></i> Edit</a>  --}}
+
+                    <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$item->id_bagan_struktur}})"
                         data-target="#DeleteModal" class="btn btn-sm btn-danger"><i class="material-icons md-delete"></i>
                         Delete</a>
-                        <div id="popup-pdf" class="mfp-hide" style="text-align:center;">
-                            <iframe
-                                src="{!! asset('uploads/'. $item->pdf) !!}"
-                                align="top" height="650" width="100%" frameborder="0" scrolling="auto"></iframe>
-                        </div>
                 </td>
             </tr>
         @endforeach
@@ -58,15 +54,9 @@
                 @csrf
                
                 <div class="form-group row">
-                    <div class="label col-md-3">Nama Peraturan</div>
+                    <div class="label col-md-3">Nama Bagan Struktur</div>
                     <div class="col-md-9">
-                        <input type="text" name="judul" id="judul" class="form-control  mt-2" placeholder="Masukan Nama Peraturan">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="label col-md-3">Upload File</div>
-                    <div class="col-md-9">
-                        <input type="file" name="pdf" id="pdf">
+                        <input type="text" name="nama" id="nama" class="form-control  mt-2" placeholder="Masukan Nama Bagan Struktur">
                     </div>
                 </div>
         </div>
@@ -86,7 +76,6 @@
         </div>
   </div>
 </div>  --}}
-
 @endsection
 @include('layouts.script.delete')
 
@@ -94,17 +83,6 @@
 
 @section('js')
 <script>
-    $(document).ready(function () {
-        $('.open-popup').magnificPopup({
-        type: 'inline',
-        fixContentPos: true,
-        duration: 300,
-        closeBtnInside: false,
-        preloader: false,
-        removalDelay: 160,
-        mainClass: 'mfp-fade'
-        });
-        })
 $("#myTable").DataTable({
     "autoWidth": false,
     "responsive": true

@@ -107,7 +107,7 @@ return [
     */
 
     'preloader' => [
-        'enabled' => true,
+        'enabled' => false,
         'img' => [
             'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
             'alt' => 'AdminLTE Preloader Image',
@@ -337,23 +337,27 @@ return [
                     'url'  => '#',
                 ],
                 [
+                    'text' => 'Bagan Struktur Organisasi',
+                    'url'  => 'dataMaster/baganstrukturOrganisasi',
+                ],
+                [
                     'text' => 'Struktur Organisasi',
-                    'url'  => '#',
+                    'url'  => 'dataMaster/strukturOrganisasi',
                 ],
                 [
                     'text' => 'Tugas Balai',
-                    'url'  => '#',
+                    'url'  => 'dataMaster/tugasBalai',
                 ],
                 [
                     'text' => 'Data Peraturan',
-                    'url'  => 'peraturan',
+                    'url'  => 'dataMaster/peraturan',
                 ],                
             ]
         ],
         [
             'can' => ['isPetugas'],
             'text' => 'Portal Informasi',
-            'url'  => 'admin/settings',
+            'url'  => 'berita',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [

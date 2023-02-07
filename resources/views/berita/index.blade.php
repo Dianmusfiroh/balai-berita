@@ -16,7 +16,7 @@
     <thead>
         <tr>
             <th style="width: 10%;">No</th>
-            <th>Nama Peraturan</th>
+        <th>Judul Informasi</th>
             <th>Aksi</th>
         </tr>
     </thead>
@@ -26,15 +26,16 @@
                 <td>{{ ++$no }}</td>
                 <td>{{ $item->judul }}</td>
                 <td>
-                    <a href="#popup-pdf" class="btn btn-sm  btn-info open-popup">lihat</a>
-                    <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$item->id_peraturan}})"
+                    {{--  <a href="#popup-pdf" class="btn btn-sm  btn-info open-popup">lihat</a>  --}}
+                    <a href="{{ route($modul.'.edit', $item->id_berita) }}" id="btnEdit" title="{{ $item->id_berita }}" class="btn btn-sm btn-success"><i class="material-icons md-edit"></i> Edit</a>
+                    <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$item->id_berita}})"
                         data-target="#DeleteModal" class="btn btn-sm btn-danger"><i class="material-icons md-delete"></i>
                         Delete</a>
-                        <div id="popup-pdf" class="mfp-hide" style="text-align:center;">
+                        {{--  <div id="popup-pdf" class="mfp-hide" style="text-align:center;">
                             <iframe
-                                src="{!! asset('uploads/'. $item->pdf) !!}"
+                                src="{!! asset('uploads/'. $item->id_berita) !!}"
                                 align="top" height="650" width="100%" frameborder="0" scrolling="auto"></iframe>
-                        </div>
+                        </div>  --}}
                 </td>
             </tr>
         @endforeach
@@ -58,15 +59,21 @@
                 @csrf
                
                 <div class="form-group row">
-                    <div class="label col-md-3">Nama Peraturan</div>
+                    <div class="label col-md-3">Judul informasi</div>
                     <div class="col-md-9">
                         <input type="text" name="judul" id="judul" class="form-control  mt-2" placeholder="Masukan Nama Peraturan">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="label col-md-3">Upload File</div>
+                    <div class="label col-md-3">Upload Foto</div>
                     <div class="col-md-9">
-                        <input type="file" name="pdf" id="pdf">
+                        <input type="file" name="foto" id="foto">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="label col-md-3">Deskripsi</div>
+                    <div class="col-md-9">
+                        <textarea name="deskripsi" class="my-editor form-control" id="my-editor" cols="30" rows="10"></textarea>
                     </div>
                 </div>
         </div>
@@ -79,13 +86,13 @@
       </div>
     </div>
   </div>
-{{--  <div  id="editModal" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div  id="editModal" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog "  role="document">
         <div class="modal-content" id="detail_edit">
            
         </div>
   </div>
-</div>  --}}
+</div>
 
 @endsection
 @include('layouts.script.delete')
@@ -110,7 +117,7 @@ $("#myTable").DataTable({
     "responsive": true
 });
 
-{{--  $('body').on('click', '#btnEdit', function (event) {
+$('body').on('click', '#btnEdit', function (event) {
     event.preventDefault();
     var me = $(this),
         title = me.attr('title');
@@ -128,6 +135,12 @@ $("#myTable").DataTable({
         }
     });
     $('#editModal').modal('show');
-});  --}}
+});
 </script>
 @endsection
+@push('scripts')
+<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('my-editor');
+    </script>
+@endpush
