@@ -16,7 +16,7 @@ class TugasBalaiController extends Controller
     public function index()
     {
         $modul = $this->modul;
-        $data = TugasBalai::all();
+        $data = TugasBalai::where('id_balai',Auth::user()->id_balai)->get();
         return view('tugasBalai.index',compact('modul','data'));
     }
     public function store(Request $request)

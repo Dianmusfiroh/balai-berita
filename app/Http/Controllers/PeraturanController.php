@@ -19,7 +19,7 @@ class PeraturanController extends Controller
     public function index()
     {
         $modul = $this->modul;
-        $data = Peraturan::all();
+    $data = Peraturan::where('id_balai',Auth::user()->id_balai)->get();
         return view('peraturan.index',compact('modul','data'));
     }
     public function store(Request $request)

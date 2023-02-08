@@ -334,7 +334,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Data Balai',
-                    'url'  => '#',
+                    'url'  => 'dataMaster/dataBalai',
                 ],
                 [
                     'text' => 'Bagan Struktur Organisasi',
@@ -350,6 +350,10 @@ return [
                 ],
                 [
                     'text' => 'Data Peraturan',
+                    'url'  => 'dataMaster/peraturan',
+                ],    
+                [
+                    'text' => 'Data Kawasan',
                     'url'  => 'dataMaster/peraturan',
                 ],                
             ]

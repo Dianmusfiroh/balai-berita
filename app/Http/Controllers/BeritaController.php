@@ -17,7 +17,7 @@ class BeritaController extends Controller
     public function index()
     {
         $modul = $this->modul;
-        $data = Berita::all();
+        $data = Berita::where('id_balai',Auth::user()->id_balai)->get();
         return view('berita.index',compact('modul','data'));
     }
     public function store(Request $request)

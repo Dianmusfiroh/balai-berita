@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Balai;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $balai = Balai::find(Auth::user()->id_balai);
+        return view('home',compact('balai'));
     }
 }

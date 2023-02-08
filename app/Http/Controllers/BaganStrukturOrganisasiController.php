@@ -18,7 +18,7 @@ class BaganStrukturOrganisasiController extends Controller
     public function index()
     {
         $modul = $this->modul;
-        $data = BaganStrukurOrganisasi::all();
+        $data = BaganStrukurOrganisasi::where('id_balai',Auth::user()->id_balai)->get();
         return view('BaganStruktur.index',compact('modul','data'));
     }
     public function store(Request $request)

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BaganStrukurOrganisasi;
 use App\Models\StrukurOrganisasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StrukturOrganisasiController extends Controller
 {
@@ -17,7 +18,8 @@ class StrukturOrganisasiController extends Controller
     {
         $modul = $this->modul;
         $data = StrukurOrganisasi::join('t_bagan_struktur','t_bagan_struktur.id_bagan_struktur','t_struktur.id_bagan_struktur')
-                                    ->select('t_struktur.*','t_bagan_struktur.nama AS namaBagan')->get();
+                                    ->select('t_struktur.*','t_bagan_struktur.nama AS namaBagan')
+                                   ->where('t_bagan_struktur.id_balai',Auth::user()->id_balai)->get();
         $bagan = BaganStrukurOrganisasi::all();
         return view('Struktur.index',compact('modul','data','bagan'));
     }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\BaganStrukturOrganisasiController;
 use App\Http\Controllers\BalaiController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\DataBalaiController;
 use App\Http\Controllers\DataPetugasController;
 use App\Http\Controllers\PeraturanController;
 use App\Http\Controllers\StrukturOrganisasiController;
@@ -36,5 +37,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('dataMaster/baganstrukturOrganisasi', BaganStrukturOrganisasiController::class);
     Route::resource('dataMaster/peraturan', PeraturanController::class);
     Route::resource('dataMaster/tugasBalai', TugasBalaiController::class);
+    Route::resource('dataMaster/dataBalai', DataBalaiController::class);
     Route::resource('berita', BeritaController::class);
 });
