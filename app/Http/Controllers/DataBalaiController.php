@@ -97,7 +97,7 @@ class DataBalaiController extends Controller
 
         if ($data) {
             return redirect()
-                ->route('dataBalai.index')
+                ->route('visimisi.index')
                 ->with([
                     'success' => 'Data Berhasil Ditambah'
                 ]);
@@ -122,7 +122,7 @@ class DataBalaiController extends Controller
 
         if ($data) {
             return redirect()
-                ->route('dataBalai.index')
+                ->route('visimisi.index')
                 ->with([
                     'success' => 'Data Berhasil Ditambah'
                 ]);
