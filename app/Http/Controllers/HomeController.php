@@ -26,6 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $balai = Balai::find(Auth::user()->id_balai);
+        
         return view('home',compact('balai'));
     }
 }
