@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content_header')
-<h1>{{ Str::title(Str::replaceArray('-',[' '],' Struktur Organisasi' ?? '')) }}</h1>
+<h1>{{ Str::title(Str::replaceArray('-',[' '],' Tugas Balai' ?? '')) }}</h1>
 @stop
 
 @section('card-header-extra')

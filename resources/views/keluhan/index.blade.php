@@ -1,6 +1,14 @@
 @extends('layouts.app')
 @section('content_header')
-<h1>{{ Str::title(Str::replaceArray('-',[' '],'Keluhan' ?? '')) }}</h1>
+<div class="row">
+    <div class="col-sm-11">
+        <h1>{{ Str::title(Str::replaceArray('-',[' '],'Keluhan' ?? '')) }}</h1>
+    </div>
+    <div class="col-sm-1">
+        <a class="btn btn-primary" onclick="refresh()"><i class="fa fa-refresh ">Refresh</i></a>
+    </div>
+</div>
+</a>
 @stop
 
 
@@ -24,20 +32,28 @@
                 <td>{{ ++$no }}</td>
                 <td>{{ $item->nama }}</td>
                 <td>{{ $item->alamat }}</td>
-                <td>{{ $item->nama }}</td>
-                <td>{{ $item->nama }}</td>
-                <td>{{ $item->nama }}</td>
+                <td>{{ $item->no_hp }}</td>
                 <td>
-                    {{--  <a href="#popup-pdf" class="btn btn-sm  btn-info open-popup">lihat</a>  --}}
-                    <a href="{{ route($modul.'.edit', $item->id) }}" id="btnEdit" title="{{ $item->id }}" class="btn btn-sm btn-success"><i class="material-icons md-edit"></i> Edit</a>
-                    <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$item->id}})"
-                        data-target="#DeleteModal" class="btn btn-sm btn-danger"><i class="material-icons md-delete"></i>
-                        Delete</a>
-                        {{--  <div id="popup-pdf" class="mfp-hide" style="text-align:center;">
-                            <iframe
-                                src="{!! asset('uploads/'. $item->id_berita) !!}"
-                                align="top" height="650" width="100%" frameborder="0" scrolling="auto"></iframe>
-                        </div>  --}}
+                    @if ($item->status == '0')
+                    <span class="badge badge-pill badge-danger"> Belum Ditnggapi</span>
+                    @else
+                    <span class="badge badge-pill badge-primary"> Sudah Ditnggapi</span>
+                    @endif
+                </td>
+                <td>  @if ($item->status == '0')
+                    <span class="badge badge-pill badge-danger"> Belum Ditnggapi</span>
+
+                    @else
+                    {{ $item->tanggapan }}
+                    @endif
+                </td>
+                <td>
+                    @if ($item->status == '0')
+                    <a href="{{ route('tanggapan', $item->id) }}" target="_blank"  class="btn btn-sm btn-success"><i class="material-icons md-edit"></i> Tanggapi</a>
+
+                    @else
+                    <i class="fas fa-check-double ms-1"></i>
+                    @endif
                 </td>
             </tr>
         @endforeach
@@ -62,6 +78,9 @@
 
 @section('js')
 <script>
+    function refresh() { 
+        location.reload();
+     };
     $(document).ready(function () {
         $('.open-popup').magnificPopup({
         type: 'inline',

@@ -35,9 +35,9 @@ use Illuminate\Support\Facades\Route;
 // });
   Route::get('/detailProfilBalai', function () {
     return view('detailProfilBalai');
-});
+})->name('detailProfilBalai');
       
-Route::get('/', [GuesController::class, 'index']);
+Route::get('/', [GuesController::class, 'index'])->name('gues');
 
 Auth::routes(['verify' => true]);
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -70,6 +70,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dataMaster/dataBalai/{id}/editVisi', [DataBalaiController::class, 'editVisi'])->name('editVisi');
     Route::put('dataMaster/dataBalai/{id_visi_misi}/updateVisi', [DataBalaiController::class, 'updateVisi'])->name('updateVisi');
     Route::get('dataMaster/dataBalai/{id}/editMisi', [DataBalaiController::class, 'editMisi'])->name('editMisi');
+    Route::get('keluhan/{id}/tanggapan', [KeluhanController::class, 'tanggapan'])->name('tanggapan');
     // Route::put('dataMaster/dataBalai/{id_visi_misi}/updateMisi', [DataBalaiController::class, 'updateMisi'])->name('updateMisi');
-    
+     
 });

@@ -30,10 +30,12 @@
                 <td>{{ $item->jenis }}</td>
                 <td>{{ $item->tahun }}</td>
                 <td>
-                    <a href="#popup-pdf" class="btn btn-sm  btn-info open-popup">lihat</a>
+                    <a href="{{ asset('uploads/'. $item->pdf) }}" target="_blank" ><i class="fa fa-download"></i></a>
+                 
+                    {{--  <a href="#popup-pdf" class="btn btn-sm  btn-info open-popup">lihat</a>  --}}
                     <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$item->id_peraturan}})"
-                        data-target="#DeleteModal" class="btn btn-sm btn-danger"><i class="material-icons md-delete"></i>
-                        Delete</a>
+                        data-target="#DeleteModal" class="text-danger"><i class="fa fa-trash"></i>
+                        </a>
                     <div id="popup-pdf" class="mfp-hide" style="text-align:center;">
                         <iframe
                             src="{{ asset('uploads/'. $item->pdf) }}"
