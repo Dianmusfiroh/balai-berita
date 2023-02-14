@@ -51,14 +51,14 @@
                     <div>
                         <div class="row">
                             <div class="col-sm-10">
-                                <label for=""> Visi</label>
+                                <label for=""> Misi</label>
                             </div>
                             <div class="col-sm-2">
                                 @if ($misi->isEmpty())
                                 <a href="" data-toggle="modal" data-target="#addMisi"><i class="fas fa-plus-square"></i></a>    
                                 @else
                             @foreach ($misi as $m )
-                            <a href="{{ route('editVisi', $m->id_visi_misi) }}" class="" id="btneditVisi"><i class="fas fa-edit"></i></a>
+                            <a href="{{ route('editMisi', $m->id_visi_misi) }}" class="" id="btneditVisi"><i class="fas fa-edit"></i></a>
                                 @endforeach
                             @endif
                             </div>
