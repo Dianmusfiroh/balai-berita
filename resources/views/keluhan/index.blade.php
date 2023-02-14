@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content_header')
-<h1>{{ Str::title(Str::replaceArray('-',[' '],'Portal Informasi' ?? '')) }}</h1>
+<h1>{{ Str::title(Str::replaceArray('-',[' '],'Keluhan' ?? '')) }}</h1>
 @stop
 
 @section('card-header-extra')
@@ -16,7 +16,11 @@
     <thead>
         <tr>
             <th style="width: 10%;">No</th>
-        <th>Judul Informasi</th>
+            <th>Nama</th>
+            <th>Alamat</th>
+            <th>No hp</th>
+            <th>Status</th>
+            <th>Tanggapan</th>
             <th>Aksi</th>
         </tr>
     </thead>
@@ -24,7 +28,11 @@
         @foreach ($data as $no => $item)
             <tr>
                 <td>{{ ++$no }}</td>
-                <td>{{ $item->judul }}</td>
+                <td>{{ $item->nama }}</td>
+                <td>{{ $item->alamat }}</td>
+                <td>{{ $item->nama }}</td>
+                <td>{{ $item->nama }}</td>
+                <td>{{ $item->nama }}</td>
                 <td>
                     {{--  <a href="#popup-pdf" class="btn btn-sm  btn-info open-popup">lihat</a>  --}}
                     <a href="{{ route($modul.'.edit', $item->id_berita) }}" id="btnEdit" title="{{ $item->id_berita }}" class="btn btn-sm btn-success"><i class="material-icons md-edit"></i> Edit</a>

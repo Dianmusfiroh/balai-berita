@@ -152,7 +152,7 @@
                         <div class="card " style="width: 22rem;">
                             <img class="card-img-top" src="{{ asset('storage/images/informasi/'.$i->foto) }}" alt="Card image cap">
                             <div class="card-body">
-                            <h5 class="card-title">{{ $i->judul }}</h5>
+                            <h5 class="card-title text">{{ $i->judul }}</h5>
                             <div class="text">
                                 <p class="card-text ">{!! $i->deskripsi !!}</p>
                             </div>
