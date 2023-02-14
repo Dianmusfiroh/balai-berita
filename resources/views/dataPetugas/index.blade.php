@@ -78,19 +78,19 @@
                 <div class="form-group row">
                     <div class="label col-md-3">Nama User</div>
                     <div class="col-md-9">
-                        <input type="text" name="name" id="name" class="form-control mt-2" placeholder="Masukan Jenis Disabilitas">
+                        <input type="text" name="name" id="name" class="form-control mt-2" placeholder="Masukan Nama User">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="label col-md-3">Email</div>
                     <div class="col-md-9">
-                        <input type="email" name="email" id="email" class="form-control mt-2" placeholder="Masukan Jenis Disabilitas">
+                        <input type="email" name="email" id="email" class="form-control mt-2" placeholder="Masukan Email">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="label col-md-3">Password</div>
                     <div class="col-md-9">
-                        <input type="password" name="password" id="password" class="form-control mt-2" placeholder="Masukan Jenis Disabilitas">
+                        <input type="password" name="password" id="password" class="form-control mt-2" placeholder="Masukan Password">
                     </div>
                 </div>
                 

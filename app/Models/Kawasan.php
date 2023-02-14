@@ -5,20 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Balai extends Model
+class Kawasan extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id_kawasan'; 
     protected $fillable = [
-        'id',
-        'nama_balai',
-        'logo_balai',
-        'foto_balai',
-        'alamat',
+        'id_kawasan',
+        'judul',
+        'lokasi',
         'deskripsi',
+        'foto',
+        'id_balai',
 
     ];
 
-    protected $table = 't_balai';
+    protected $table = 't_kawasan';
     public $timestamps = false;
-
 }

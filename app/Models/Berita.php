@@ -14,8 +14,10 @@ class Berita extends Model
         'judul',
         'foto',
         'deskripsi',
-
         'id_balai'
     ];
     protected $table = 't_berita';
+    public function balai(){
+        return $this->belongsTo(Balai::class,'id_balai', 'id');
+    }
 }

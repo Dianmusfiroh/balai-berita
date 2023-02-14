@@ -2,45 +2,45 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Berita;
+use App\Models\Kawasan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use File;
 use Illuminate\Support\Facades\Storage;
 
-class BeritaController extends Controller
+class KawasanController extends Controller
 {
     protected $modul;
     public function __construct()
     {
-        $this->modul = 'berita';
+        $this->modul = 'kawasan';
     }
     public function index()
     {
         $modul = $this->modul;
-        $data = Berita::where('id_balai',Auth::user()->id_balai)->get();
-        return view('berita.index',compact('modul','data'));
+        $kawasan = Kawasan::where('id_balai',Auth::user()->id_balai)->get();
+        return view('kawasan.index',compact('modul','kawasan'));
     }
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $validatedData = $request->validate([
             'judul'=> 'required',
+            'lokasi' => 'required',
             'foto'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'deskripsi'=> 'required',
            ]);
         $imageName = time().'.'.$request->foto->extension();  
-        $request->foto->storeAs('public/images/informasi/', $imageName);
+        $request->foto->storeAs('public/images/kawasan/', $imageName);
      
-        $post = Berita::create([
+        $data = Kawasan::create([
+            'lokasi' => $request->lokasi,
             'judul' => $request->judul,
             'foto' => $imageName ,
             'deskripsi' => $request->deskripsi,
             'id_balai' =>Auth::user()->id_balai,
         ]);
-
-        if ($post) {
+        if ($data) {
             return redirect()
-                ->route('berita.index')
+                ->route('kawasan.index')
                 ->with([
                     'success' => 'Data Berhasil Ditambah'
                 ]);
@@ -55,13 +55,13 @@ class BeritaController extends Controller
     }
     public function destroy($id)
     {
-        $post = Berita::findOrFail($id);
-        Storage::delete('public/images/informasi/'.$post->foto);
+        $post = Kawasan::findOrFail($id);
+        Storage::delete('public/images/kawasan/'.$post->foto);
         $post->delete();
 
         if ($post) {
             return redirect()
-                ->route('berita.index')
+                ->route('kawasan.index')
                 ->with([
                     'success' => 'Data Berhasil Dihapus'
                 ]);
@@ -77,34 +77,33 @@ class BeritaController extends Controller
     public function edit(Request $request,$id)
     {
         $modul = $this->modul;
-        $data = Berita::find($id);
-        return view('berita.edit',compact('data','modul'));
+        $data = Kawasan::find($id);
+        return view('kawasan.edit',compact('data','modul'));
     }
        
-    public function update(Request $request, $id_berita, Berita $berita)
+    public function update(Request $request, $id_kawasan)
     {
-        $post = Berita::find($id_berita);
+        $post = Kawasan::find($id_kawasan);
         $imageName = '';
         if ($request->hasFile('foto')) {
 
           $imageName = time() . '.' . $request->foto->extension();
-          $request->foto->storeAs('public/images/informasi/', $imageName);
+          $request->foto->storeAs('public/images/kawasan/', $imageName);
           if ($post->foto) {
-            Storage::delete('public/images/informasi/'.$post->foto);
+            Storage::delete('public/images/kawasan/'.$post->foto);
           }
         } else {
           $imageName = $post->foto;
         }
-      
         $post->update([
             'judul' => $request->judul,
+            'lokasi' => $request->lokasi,
             'foto' => $imageName ,
             'deskripsi' => $request->deskripsi,
         ]);
-
         if ($post) {
             return redirect()
-                ->route('berita.index')
+                ->route('strukturOrganisasi.index')
                 ->with([
                     'success' => 'Data Berhasil Diubah'
                 ]);

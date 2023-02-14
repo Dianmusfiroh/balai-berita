@@ -17,4 +17,7 @@ class Peraturan extends Model
     ];
     protected $table = 't_peraturan';
     public $timestamps = false;
+    public function balai(){
+        return $this->belongsTo(Balai::class,'id_balai', 'id');
+    }
 }

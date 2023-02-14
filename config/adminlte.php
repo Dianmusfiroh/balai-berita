@@ -354,7 +354,7 @@ return [
                 ],    
                 [
                     'text' => 'Data Kawasan',
-                    'url'  => 'dataMaster/peraturan',
+                    'url'  => 'dataMaster/kawasan',
                 ],                
             ]
         ],

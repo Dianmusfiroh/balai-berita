@@ -6,7 +6,7 @@
     </button>
 </div>
 <div class="modal-body" >
-    <form action="{{ route($modul.'.update',$data->id_berita)}}" method="POST">
+    <form action="{{ route($modul.'.update',$data->id_berita)}}" enctype="multipart/form-data" method="POST">
         @csrf
         @method('PUT')
         <div class="form-group row">
@@ -18,7 +18,7 @@
         <div class="form-group row">
             <div class="label col-md-3">Upload Foto</div>
             <div class="col-md-9">
-                <img src="/images/{{ $data->foto }}" width="300px">
+                <img src={{ asset('storage/images/informasi/'.$data->foto ) }} width="300px">
                 <input type="file" name="foto"  value="{{$data->foto}}" id="foto">
             </div>
         </div>
