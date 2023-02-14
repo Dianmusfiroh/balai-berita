@@ -12,7 +12,7 @@
         <div class="form-group row">
             <div class="label col-md-3">Judul </div>
             <div class="col-md-9">
-                <input type="text" name="nama_balai" id="nama_balai" value="{{$data->judul}}" class="form-control mt-2" placeholder="Masukan Nama Lengkap">
+                <input type="text" name="judul" id="judul" value="{{$data->judul}}" class="form-control mt-2" placeholder="Masukan Nama Lengkap">
             </div>
         </div>
         <div class="form-group row">

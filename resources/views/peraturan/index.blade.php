@@ -17,6 +17,8 @@
         <tr>
             <th style="width: 10%;">No</th>
             <th>Nama Peraturan</th>
+            <th>Jenis Peraturan</th>
+            <th>Tahun</th>
             <th>Aksi</th>
         </tr>
     </thead>
@@ -25,20 +27,23 @@
             <tr>
                 <td>{{ ++$no }}</td>
                 <td>{{ $item->judul }}</td>
+                <td>{{ $item->jenis }}</td>
+                <td>{{ $item->tahun }}</td>
                 <td>
                     <a href="#popup-pdf" class="btn btn-sm  btn-info open-popup">lihat</a>
                     <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$item->id_peraturan}})"
                         data-target="#DeleteModal" class="btn btn-sm btn-danger"><i class="material-icons md-delete"></i>
                         Delete</a>
-                        <div id="popup-pdf" class="mfp-hide" style="text-align:center;">
-                            <iframe
-                                src="{!! asset('uploads/'. $item->pdf) !!}"
-                                align="top" height="650" width="100%" frameborder="0" scrolling="auto"></iframe>
-                        </div>
+                    <div id="popup-pdf" class="mfp-hide" style="text-align:center;">
+                        <iframe
+                            src="{{ asset('uploads/'. $item->pdf) }}"
+                            align="top" height="650" width="100%" frameborder="0" scrolling="auto"></iframe>
+                    </div>
                 </td>
             </tr>
+            
         @endforeach
-
+       
     </tbody>
 
 </table>
@@ -61,6 +66,28 @@
                     <div class="label col-md-3">Nama Peraturan</div>
                     <div class="col-md-9">
                         <input type="text" name="judul" id="judul" class="form-control  mt-2" placeholder="Masukan Nama Peraturan">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="label col-md-3">Jenis Peraturan</div>
+                    <div class="col-md-9">
+                        <input type="text" name="jenis" id="jenis" class="form-control  mt-2" placeholder="Masukan Jenis Peraturan">
+                    </div>
+                </div>
+                {{--  {{ \Carbon\Carbon::createFromDate('2020')->format('Y')}}  --}}
+
+
+
+                <div class="form-group row">
+                    <div class="label col-md-3">Tahun</div>
+                    <div class="col-md-9">
+                        <select name="tahun" id="" class="form-control">
+                            @foreach(array_combine(range(date("Y"), 1900), range(date("Y"), 1900)) as $year) 
+                          
+                            <option value="{{ $year }}">  {{ $year }} </option>
+
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="form-group row">

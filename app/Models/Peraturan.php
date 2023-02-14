@@ -12,6 +12,8 @@ class Peraturan extends Model
     protected $fillable = [
         'id_peraturan',
         'judul',
+        'jenis',
+        'tahun',
         'pdf',
         'id_balai'
     ];

@@ -2499,6 +2499,13 @@ textarea.form-control-lg {
   -webkit-print-color-adjust: exact;
           color-adjust: exact;
 }
+.jumbotron{
+  font-size: 20px;
+  padding: 60px;
+  background-color: #00c8eb;
+  text-align: center;
+  color: white;
+}
 .form-check-input[type=checkbox] {
   border-radius: 0.25em;
 }

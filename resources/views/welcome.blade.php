@@ -33,7 +33,7 @@
                         <li class="nav-item"><a class="nav-link" href="#profil">Profil Balai</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">Informasi</a></li>
                         {{--  <li class="nav-item"><a class="nav-link" href="#team">Dokument</a></li>  --}}
-                        <li class="nav-item"><a class="nav-link" href="#team">Pengumunan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#team">Peraturan</a></li>
                         <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
                     </ul>
                 </div>
@@ -172,7 +172,7 @@
         <section class="page-section bg-light" id="team">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Pengumunan</h2>
+                    <h2 class="section-heading text-uppercase">Peraturan</h2>
                     {{--  <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>  --}}
                 </div>
                 <div class="row">
@@ -181,8 +181,10 @@
                           <tr>
                             <th scope="col">No</th>
                             <th scope="col">Peraturan</th>
+                            <th scope="col">Jenis Peraturan</th>
+                            <th scope="col">Tahun</th>
                             <th scope="col">Nama Balai</th>
-                            <th scope="col">Aksi</th>
+                            <th scope="col">file</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -191,6 +193,8 @@
                           <tr>
                             <th scope="row">{{ ++$no }}</th>
                             <td>{{ $p->judul }}</td>
+                            <td>{{ $p->jenis }}</td>
+                            <td>{{ $p->tahun }}</td>
                             <td>{{ $p->balai->nama_balai }}</td>
                             <td>
                                 <a href="#popup-pdf" class=" open-popup">lihat</a>
@@ -274,7 +278,7 @@
                     <!-- an error submitting the form-->
                     <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                     <!-- Submit Button-->
-                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
+                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase " id="submitButton" type="submit">Kirim Keluhan</button></div>
                 </form>
             </div>
         </section>

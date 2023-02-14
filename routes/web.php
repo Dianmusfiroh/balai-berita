@@ -30,7 +30,10 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-    
+  Route::get('/detailProfilBalai', function () {
+    return view('detailProfilBalai');
+});
+      
 Route::get('/', [GuesController::class, 'index']);
 
 Auth::routes(['verify' => true]);

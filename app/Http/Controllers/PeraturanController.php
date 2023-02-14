@@ -33,6 +33,8 @@ class PeraturanController extends Controller
         $request->pdf->move(public_path('uploads'), $fileName);
         $post = Peraturan::create([
             'judul' => $request->judul,
+            'jenis' => $request->jenis,
+            'tahun' => $request->tahun,
             'pdf' => $fileName ,
             'id_balai' =>Auth::user()->id_balai,
         ]);
