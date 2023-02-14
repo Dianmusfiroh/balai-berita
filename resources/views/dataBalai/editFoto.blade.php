@@ -13,7 +13,7 @@
         <div class="form-group row">
             <div class="label col-md-3">Foto </div>
             <div class="col-md-9">
-                <img src="{{ asset('storage/images/foto_balai/'. $data->foto_balai) }} " class=" img-fluid"></img>
+            <img src="{{ asset('storage/images/foto_balai/'. $data->foto_balai) }} " class=" img-fluid"></img>
                 <input type="file" name="foto_balai" id="foto_balai"  class="form-control mt-2" placeholder="Masukan Nama Lengkap">
             </div>
         </div>

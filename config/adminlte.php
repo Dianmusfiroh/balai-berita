@@ -337,9 +337,15 @@ return [
                     'url'  => 'dataMaster/dataBalai',
                 ],
                 [
+                    'text' => 'Visi Misi',
+                    'url'  => 'dataMaster/visimisi',
+                ],
+                [
                     'text' => 'Bagan Struktur Organisasi',
                     'url'  => 'dataMaster/baganstrukturOrganisasi',
                 ],
+
+
                 [
                     'text' => 'Struktur Organisasi',
                     'url'  => 'dataMaster/strukturOrganisasi',

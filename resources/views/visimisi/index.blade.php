@@ -15,125 +15,19 @@
     <div class="card card-primary card-outline card-tabs">
         <div class="card-header p-0 pt-1 border-bottom-0">
             <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
+             
                 <li class="nav-item">
-                    <a class="nav-link active" id="custom-tabs-three-profile-tab" data-toggle="pill"
-                        href="#custom-tabs-three-profile" role="tab" aria-controls="custom-tabs-three-profile"
-                        aria-selected="true">Profile</a>
-                </li>
-                {{--  <li class="nav-item">
-                    <a class="nav-link" id="custom-tabs-three-messages-tab" data-toggle="pill"
+                    <a class="nav-link active" id="custom-tabs-three-messages-tab" data-toggle="pill"
                         href="#custom-tabs-three-messages" role="tab" aria-controls="custom-tabs-three-messages"
-                        aria-selected="false">Visi-Misi</a>
-                </li>  --}}
+                        aria-selected="true">Visi-Misi</a>
+                </li>
+      
                
             </ul>
         </div>
         <div class="card-body">
             <div class="tab-content" id="custom-tabs-three-tabContent">
-                <div class="tab-pane fade show active " id="custom-tabs-three-profile" role="tabpanel" aria-labelledby="custom-tabs-three-profile-tab">
-                    <div class=" row">
-                        <div class="col-md-8">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label for=""> Nama Balai</label>
-                                </div>   
-                                @if ( $data->nama_balai == null)
-                                    <div class="col-md-9">
-                                        <p>Belum ada Data </p>
-                                        <a href="" data-toggle="modal" data-target="#exampleModal">Tambah Data</a>    
-                                    </div>
-                                @else
-                                    <div class="col-md-9">
-                                        <p>{{ $data->nama_balai}}</p>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <a href="{{ route('editNamaBalai', $data->id) }}" class="" id="btnEditNama"><i class="fas fa-edit"></i></a>
-                                    </div>
-                                @endif
-                                
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label for=""> Alamat</label>
-                                </div>   
-                                @if ( $data->alamat == null)
-                                    <div class="col-md-9">
-                                        <p>Belum ada Data </p>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <a href="" data-toggle="modal" data-target="#addAlamat"><i class="fas fa-plus-square"></i></a>    
-                                    </div>
-                                @else
-                                    <div class="col-md-9">
-                                        <p>{{ $data->alamat}}</p>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <a href="{{ route('editAlamat', $data->id) }}" class="" id="btneditAlamat"><i class="fas fa-edit"></i></a>
-
-                                        {{--  <a href=""  data-toggle="modal" data-target="#editAlamat" class=""><i class="fas fa-edit"></i></a>  --}}
-                                    </div>
-                                @endif
-                                
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label for=""> Foto Balai</label>
-                                </div>   
-                                @if ( $data->foto_balai == null)
-                                    <div class="col-md-9">
-                                        <p>Belum ada Data </p>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <a href="" data-toggle="modal" data-target="#addFoto"><i class="fas fa-plus-square"></i></a>    
-                                    </div>
-                                @else
-                                    <div class="col-md-9">
-                                            {{--  <a href="#popup-pdf" class="btn btn-sm  btn-info open-popup">lihat</a>  --}}
-
-                                        <a href="#popup-pdf" class=" open-popup">lihat</a>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <a href="{{ route('editFoto', $data->id) }}" class="" id="btneditFoto"><i class="fas fa-edit"></i></a>
-                                    </div>
-                                @endif
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label for=""> Deskripsi</label>
-                                </div>   
-                                @if ( $data->deskripsi == null)
-                                    <div class="col-md-9">
-                                        <p>Belum ada Data </p>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <a href="" data-toggle="modal" data-target="#addDeskripsi"><i class="fas fa-plus-square"></i></a>    
-                                    </div>
-                                @else
-                                    <div class="col-md-9">
-                                        <p>{!! $data->deskripsi !!}</p>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <a href="{{ route('editDeskripsi', $data->id) }}" class=""><i class="fas fa-edit"></i></a>
-                                    </div>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            
-                            <Label> Logo</Label>
-                            @if ($data->logo_balai == null)
-                                
-                                <h4 class="text-center">Belum Ada Logo <br>
-                                <a href="" data-toggle="modal" data-target="#addLogo" >Tambah Data</a>    
-                            </h4>
-                            @else
-                            <img src="{{ asset('storage/images/logo_balai/'. $data->logo_balai) }}" height="10" alt="..." class=" img-fluid rounded">
-                            @endif
-                        </div>
-                    </div>
-                </div>
-  
-                {{--  <div class="tab-pane fade" id="custom-tabs-three-messages" role="tabpanel" aria-labelledby="custom-tabs-three-messages-tab">
+                <div class="tab-pane fade show active" id="custom-tabs-three-messages" role="tabpanel" aria-labelledby="custom-tabs-three-messages-tab">
                     <div>
                         <div class="row">
                             <div class="col-sm-10">
@@ -141,27 +35,65 @@
                             </div>
                             <div class="col-sm-2">
                                 @if ($visi->isEmpty())
-                                <br>
-                                <a href="" data-toggle="modal" data-target="#addVisi">Tambah Data</a>    
+                                <a href="" data-toggle="modal" data-target="#addVisi"><i class="fas fa-plus-square"></i></a>    
+                                @else
+                            @foreach ($visi as $v )
+                            <a href="{{ route('editVisi', $v->id_visi_misi) }}" class="" id="btneditVisi"><i class="fas fa-edit"></i></a>
+                                @endforeach
+                            @endif
+                            </div>
+                        </div>
+                        @foreach ($visi as $v )
+                            {!! $v->deskripsi !!}
+                        @endforeach
+                            
+                    </div>  
+                    <div>
+                        <div class="row">
+                            <div class="col-sm-10">
+                                <label for=""> Visi</label>
+                            </div>
+                            <div class="col-sm-2">
+                                @if ($misi->isEmpty())
+                                <a href="" data-toggle="modal" data-target="#addMisi"><i class="fas fa-plus-square"></i></a>    
+                                @else
+                            @foreach ($misi as $m )
+                            <a href="{{ route('editVisi', $m->id_visi_misi) }}" class="" id="btneditVisi"><i class="fas fa-edit"></i></a>
+                                @endforeach
+                            @endif
+                            </div>
+                        </div>
+                        @foreach ($misi as $m )
+                            {!! $m->deskripsi !!}
+                        @endforeach
+                            
+                    </div>  
+                      
+                   
+                    {{--  <div class="row">
+                            <div class="col-sm-10">
+                                <label for=""> Visi</label>
+                            </div>
+                            <div class="col-sm-2">
+                                @if ($visi->isEmpty())
+                                <a href="" data-toggle="modal" data-target="#addVisi"><i class="fas fa-plus-square"></i></a>    
                                 @else
                             @foreach ($visi as $item )
                                 <a href="{{ route('editVisi', $item->id_visi_misi) }}" class="" id="btneditVisi"><i class="fas fa-edit"></i></a>
                             </div>
+                            <p> {!! $item->deskripsi !!} </p>
+
                         </div>
-                                <p> {!! $item->deskripsi !!} </p>
                             @endforeach
                         @endif
                         
-                    </div>
-                    <div>
                         <div class="row">
                             <div class="col-sm-10">
                                 <label for=""> Misi</label>
                             </div>
                             <div class="col-sm-2">
-                                @if ($visi->isEmpty())
-                                <br>
-                                <a href="" data-toggle="modal" data-target="#addMisi">Tambah Data</a>    
+                                @if ($misi->isEmpty())
+                                <a href="" data-toggle="modal" data-target="#addMisi"><i class="fas fa-plus-square"></i></a>    
                                 @else
                                 @foreach ($misi as $item )
                                 <a href="{{ route('editMisi', $item->id_visi_misi) }}" class=""><i class="fas fa-edit"></i></a>
@@ -169,23 +101,16 @@
                         </div>
                                     <p> {!! $item->deskripsi !!} </p>
                                 @endforeach
-                            @endif
+                            @endif  --}}
 
-                    </div>
-                </div>  --}}
+                </div>
             </div>
         </div>
 
     </div>
 
     {{--  Popup   --}}
-    <div id="popup-pdf" class="mfp-hide" style="text-align:center;">
-        {{--  <img
-            src="{!! asset('images/foto_balai/'. $data->foto_balai) !!}"
-            align="top" height="100%" width="80%" frameborder="0" scrolling="auto">  --}}
-            <img src={{ asset('storage/images/foto_balai/'.$data->foto_balai ) }}   align="top" height="100%" width="80%" frameborder="0" scrolling="auto">
-        </img>
-    </div>
+
     {{--  Add Modal  --}}
     <div class="modal fade bd-example-modal-lg" id="addVisi" tabindex="-1" role="dialog" aria-labelledby="addVisiLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
@@ -372,27 +297,7 @@
             </div>
       </div>
     </div>
-    <div  id="editModalAlamat" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog "  role="document">
-            <div class="modal-content" id="detail_editAlamat">
-               
-            </div>
-      </div>
-    </div>
-    <div  id="editModalFoto" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog "  role="document">
-            <div class="modal-content" id="detail_editFoto">
-               
-            </div>
-      </div>
-    </div>
-    <div  id="editModalDeskripsi" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog "  role="document">
-            <div class="modal-content" id="detail_editDeskripsi">
-               
-            </div>
-      </div>
-    </div>
+   
     <div  id="editModalVisi" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog "  role="document">
             <div class="modal-content" id="detail_editVisi">
@@ -517,12 +422,9 @@
             removalDelay: 160,
             mainClass: 'mfp-fade'
             });
-            CKEDITOR.replace('my-editor');
-            CKEDITOR.replace('my-editor2');
-            CKEDITOR.replace('textarea-id');
+            CKEDITOR.replace('deskripsi');
             CKEDITOR.replace('textarea-misi');
-            CKEDITOR.replace('textarea-updateVisi'); 
-            CKEDITOR.replace('deskripsi');   
+   
  
     </script>
 
@@ -533,7 +435,11 @@
     CKEDITOR.replace('my-editor2');
     $(document).ready(function () {
         $('#my-editor4').ckeditor();
-    
+        CKEDITOR.replace('my-editor');
+        CKEDITOR.replace('my-editor2');
+        CKEDITOR.replace('textarea-id');
+        CKEDITOR.replace('textarea-updateVisi'); 
+        CKEDITOR.replace('deskripsi');
     });
       
     </script>
