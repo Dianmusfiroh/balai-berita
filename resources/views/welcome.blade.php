@@ -29,9 +29,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#profil">Profil</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">Aktifty</a></li>
+                        {{--  <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>  --}}
+                        <li class="nav-item"><a class="nav-link" href="#profil">Profil Balai</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">Informasi</a></li>
                         {{--  <li class="nav-item"><a class="nav-link" href="#team">Dokument</a></li>  --}}
                         <li class="nav-item"><a class="nav-link" href="#team">Pengumunan</a></li>
                         <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
@@ -49,7 +49,7 @@
             </div>
         </header>
         <!-- Services-->
-        <section class="page-section" id="home">
+        {{--  <section class="page-section" id="home">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Home</h2>
@@ -98,7 +98,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>  --}}
         <!-- Portfolio Grid-->
         <section class="page-section bg-light" id="profil">
             <div class="container">
