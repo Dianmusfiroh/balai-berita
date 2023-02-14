@@ -7,6 +7,7 @@ use App\Http\Controllers\DataBalaiController;
 use App\Http\Controllers\DataPetugasController;
 use App\Http\Controllers\GuesController;
 use App\Http\Controllers\KawasanController;
+use App\Http\Controllers\KeluhanController;
 use App\Http\Controllers\PeraturanController;
 use App\Http\Controllers\StrukturOrganisasiController;
 use App\Http\Controllers\TugasBalaiController;
@@ -51,6 +52,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('dataMaster/kawasan', KawasanController::class);
     Route::resource('dataMaster/visimisi', VisiMisiController::class);
     Route::resource('berita', BeritaController::class);
+    Route::resource('keluhan', KeluhanController::class);
     Route::post('dataMaster/dataBalai/storeAlamat', [DataBalaiController::class, 'storeAlamat'])->name('storeAlamat');
     Route::post('dataMaster/dataBalai/storeFoto', [DataBalaiController::class, 'storeFoto'])->name('storeFoto');
     Route::post('dataMaster/dataBalai/storeLogo', [DataBalaiController::class, 'storeLogo'])->name('storeLogo');

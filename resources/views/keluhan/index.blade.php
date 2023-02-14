@@ -3,13 +3,7 @@
 <h1>{{ Str::title(Str::replaceArray('-',[' '],'Keluhan' ?? '')) }}</h1>
 @stop
 
-@section('card-header-extra')
- <div class="float-right">
-    <a href="" id="btnDetail" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-fw fa-plus"></i>
-        Tambah Data</a>
-          
-</div>
-@endsection
+
 @section('card-body')
 
 <table class="table table-bordered table-striped table-sm text-center" id="myTable">
@@ -35,8 +29,8 @@
                 <td>{{ $item->nama }}</td>
                 <td>
                     {{--  <a href="#popup-pdf" class="btn btn-sm  btn-info open-popup">lihat</a>  --}}
-                    <a href="{{ route($modul.'.edit', $item->id_berita) }}" id="btnEdit" title="{{ $item->id_berita }}" class="btn btn-sm btn-success"><i class="material-icons md-edit"></i> Edit</a>
-                    <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$item->id_berita}})"
+                    <a href="{{ route($modul.'.edit', $item->id) }}" id="btnEdit" title="{{ $item->id }}" class="btn btn-sm btn-success"><i class="material-icons md-edit"></i> Edit</a>
+                    <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$item->id}})"
                         data-target="#DeleteModal" class="btn btn-sm btn-danger"><i class="material-icons md-delete"></i>
                         Delete</a>
                         {{--  <div id="popup-pdf" class="mfp-hide" style="text-align:center;">
@@ -52,48 +46,7 @@
 
 </table>
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Tambah Data Balai</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
 
-        <div class="modal-body">
-            <form action="{{ route($modul.'.store')}}"  enctype="multipart/form-data" id="upload-file" method="POST">
-                @csrf
-               
-                <div class="form-group row">
-                    <div class="label col-md-3">Judul informasi</div>
-                    <div class="col-md-9">
-                        <input type="text" name="judul" id="judul" class="form-control  mt-2" placeholder="Masukan Nama Peraturan">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="label col-md-3">Upload Foto</div>
-                    <div class="col-md-9">
-                        <input type="file" name="foto" id="foto">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="label col-md-3">Deskripsi</div>
-                    <div class="col-md-9">
-                        <textarea name="deskripsi" class="my-editor form-control" id="my-editor" cols="30" rows="10"></textarea>
-                    </div>
-                </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
-          <button type="submit" class="btn btn-primary">Simpan</button>
-
-        </form>
-        </div>
-      </div>
-    </div>
-  </div>
 <div  id="editModal" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog "  role="document">
         <div class="modal-content" id="detail_edit">

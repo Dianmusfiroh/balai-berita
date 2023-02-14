@@ -373,7 +373,7 @@ return [
         [
             'can' => ['isPetugas'],
             'text' => 'Keluhan',
-            'url'  => 'admin/settings',
+            'url'  => 'keluhan',
             'icon' => 'fas fa-fw fa-lock',
         ],
        

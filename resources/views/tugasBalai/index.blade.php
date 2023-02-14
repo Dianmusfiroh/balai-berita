@@ -24,7 +24,7 @@
         @foreach ($data as $no => $item)
             <tr>
                 <td>{{ ++$no }}</td>
-                <td>{{ $item->nama_tugas }}</td>
+                <td>{!! $item->nama_tugas !!}</td>
                 <td>
                 {{--  <a href="{{ route($modul.'.edit', $item->id_tugas) }}" id="btnEdit" title="{{ $item->id_tugas }}" class="btn btn-sm btn-success"><i class="material-icons md-edit"></i> Edit</a>  --}}
 
