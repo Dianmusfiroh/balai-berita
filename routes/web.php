@@ -38,6 +38,7 @@ use Illuminate\Support\Facades\Route;
 })->name('detailProfilBalai');
       
 Route::get('/', [GuesController::class, 'index'])->name('gues');
+Route::resource('keluhan', KeluhanController::class);
 
 Auth::routes(['verify' => true]);
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -52,7 +53,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('dataMaster/kawasan', KawasanController::class);
     Route::resource('dataMaster/visimisi', VisiMisiController::class);
     Route::resource('berita', BeritaController::class);
-    Route::resource('keluhan', KeluhanController::class);
     Route::post('dataMaster/dataBalai/storeAlamat', [DataBalaiController::class, 'storeAlamat'])->name('storeAlamat');
     Route::post('dataMaster/dataBalai/storeFoto', [DataBalaiController::class, 'storeFoto'])->name('storeFoto');
     Route::post('dataMaster/dataBalai/storeLogo', [DataBalaiController::class, 'storeLogo'])->name('storeLogo');
