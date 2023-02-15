@@ -20,7 +20,7 @@ class StrukturOrganisasiController extends Controller
         $data = StrukurOrganisasi::join('t_bagan_struktur','t_bagan_struktur.id_bagan_struktur','t_struktur.id_bagan_struktur')
                                     ->select('t_struktur.*','t_bagan_struktur.nama AS namaBagan')
                                    ->where('t_bagan_struktur.id_balai',Auth::user()->id_balai)->get();
-        $bagan = BaganStrukurOrganisasi::all();
+        $bagan = BaganStrukurOrganisasi::where('t_bagan_struktur.id_balai',Auth::user()->id_balai)->get();
         return view('Struktur.index',compact('modul','data','bagan'));
     }
     public function store(Request $request)

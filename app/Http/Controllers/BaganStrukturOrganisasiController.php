@@ -50,7 +50,7 @@ class BaganStrukturOrganisasiController extends Controller
     {
         $post = BaganStrukurOrganisasi::findOrFail($id);
         $post->delete();
-        DB::table('t_struktur')->where('id_balai',$id)->delete();
+        DB::table('t_struktur')->where('id_bagan_struktur',$id)->delete();
 
         if ($post) {
             return redirect()
