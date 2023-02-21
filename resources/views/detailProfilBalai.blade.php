@@ -2,19 +2,20 @@
 @section('hero')
     @if ($dataBalai->foto_balai == null)
         <section id="hero" style=" background: url('../storage/images/Logo Balai.png') top center;"
-            class="d-flex flex-column align-items-center justify-content-center">
+            class="d-flex overlay flex-column align-items-center justify-content-center">
         @else
             <section id="hero"
-                style=" background: url('../storage/images/foto_balai/{{ $dataBalai->foto_balai }}') top center;"
+                style="   overflow: hidden;
+                background: #1a1818;  
+                background: linear-gradient(rgb(18, 16, 16,0.8), rgb(18, 16, 16,0.1)), url('../storage/images/foto_balai/{{ $dataBalai->foto_balai }}') top center;"
                 class="d-flex flex-column align-items-center justify-content-center">
     @endif
-    <h1>Selamat Datang Di Balai</h1>
-    <h2>{{ $dataBalai->nama_balai }}</h2>
-    <a href="#about" class="btn-get-started scrollto"><i class="bi bi-chevron-double-down"></i></a>
+    <h1 class="text-white">Selamat Datang Di Balai</h1>
+    <h2 class="text-white">{{ $dataBalai->nama_balai }}</h2>
+    {{--  <a href="#about" class="btn-get-started scrollto"><i class="bi bi-chevron-double-down"></i></a>  --}}
     </section>
 @endsection
 @section('nama-balai')
-    <h1><a href="/detailProfilBalai">{{ $dataBalai->nama_balai }}</a></h1>
 @endsection
 @section('profil')
     <div class="section-title">

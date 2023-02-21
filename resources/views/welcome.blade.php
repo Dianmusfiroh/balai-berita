@@ -109,7 +109,8 @@
                                 <p class="card-text ">{!! $i->deskripsi !!}</p>
                             </div>
                             <div class="card-read-more">
-                                <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" class="btn btn-link btn-block">
+                                <a href="{{ route('detailBerita', $i->id_berita) }}"
+                                    class="btn btn-link btn-block">
                                     Lihat
                                 </a>
                             </div>                            

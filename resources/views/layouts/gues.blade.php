@@ -41,7 +41,7 @@
 <body>
 
   <!-- ======= Hero Section ======= -->
-    <div>
+    <div class="">
         @yield('hero')
     </div>
       

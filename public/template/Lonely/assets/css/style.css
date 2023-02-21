@@ -323,7 +323,49 @@ h6 {
 .navbar-mobile .dropdown>.dropdown-active {
   display: block;
 }
+.overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
 
+.masthead {
+  padding-top: 10.5rem;
+  padding-bottom: 6rem;
+  text-align: center;
+  color: #fff;
+  
+  /* background-image: url("../assets/img/header-bg.jpg"); */
+  /* background-image: url("https://alakota.com/wp-content/uploads/2022/12/menara-keagungan-limboto-2.webp"); */
+  overflow: hidden;
+  background: #1a1818;  
+  background: linear-gradient(rgb(18, 16, 16,0.8), rgb(18, 16, 16,0.5)), url("https://alakota.com/wp-content/uploads/2022/12/menara-keagungan-limboto-2.webp");  
+  background: linear-gradient(rgb(18, 16, 16,0.8), rgb(18, 16, 16,0.5)), url("https://alakota.com/wp-content/uploads/2022/12/menara-keagungan-limboto-2.webp"); 
+
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  /* height: 400px;
+  width: 100%;
+  text-align: center;
+  padding-top: 100px;
+  color: white;
+  overflow: hidden;
+  background: #C04848;  
+  background: linear-gradient(rgb(72,0,72,0.8), rgb(192,72,72,0.8)), url("https://ik.imagekit.io/ikmedia/blog/hero-image.jpeg");  
+  background: linear-gradient(rgb(72,0,72,0.8), rgb(192,72,72,0.8)), url("https://ik.imagekit.io/ikmedia/blog/hero-image.jpeg"); 
+  background-size: cover;
+  background-repeat: no-repeat; */
+}
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
