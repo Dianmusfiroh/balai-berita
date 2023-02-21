@@ -11,7 +11,7 @@
                 class="d-flex flex-column align-items-center justify-content-center">
     @endif
     <h1 class="text-white">Selamat Datang Di Balai</h1>
-    <h1 class="text-white">{{ $dataBalai->nama_balai }}</h1>
+    <h3 class="text-white">{{ $dataBalai->nama_balai }}</h3>
     {{--  <a href="#about" class="btn-get-started scrollto"><i class="bi bi-chevron-double-down"></i></a>  --}}
     </section>
 @endsection
