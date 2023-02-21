@@ -316,7 +316,7 @@ return [
             'can' => ['isAdmin'],
             'header' => 'account_settings'],
         [
-            'can' => ['isAdmin','isKepala'],
+            'can' => ['isAdmin'],
             'text' => 'Profil Balai',
             'url'  => 'profilBalai',
             'icon' => 'fas fa-fw fa-user',
@@ -371,7 +371,7 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'can' => ['isPetugas'],
+            'can' => ['isPetugas','isKetua'],
             'text' => 'Keluhan',
             'url'  => 'keluhan',
             'icon' => 'fas fa-fw fa-lock',

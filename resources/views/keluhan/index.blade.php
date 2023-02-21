@@ -4,16 +4,20 @@
     <div class="col-sm-11">
         <h1>{{ Str::title(Str::replaceArray('-',[' '],'Keluhan' ?? '')) }}</h1>
     </div>
+    @can('isPetugas')
     <div class="col-sm-1">
         <a class="btn btn-primary" onclick="refresh()"><i class="fa fa-refresh ">Refresh</i></a>
-    </div>
+    </div>    
+    @endcan
+    
 </div>
 </a>
 @stop
 
 
 @section('card-body')
-
+@can('isPetugas')
+    
 <table class="table table-bordered table-striped table-sm text-center" id="myTable">
     <thead>
         <tr>
@@ -62,7 +66,37 @@
 
 </table>
 <!-- Modal -->
+@endcan
 
+@can('isKetua')
+<table class="table table-bordered table-striped table-sm text-center" id="myTable">
+    <thead>
+        <tr>
+            <th style="width: 10%;">No</th>
+            <th>Nama</th>
+            <th>Alamat</th>
+            <th>No hp</th>
+            <th>Keluhan</th>
+         
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($sukses as $no => $item)
+            <tr>
+                <td>{{ ++$no }}</td>
+                <td>{{ $item->nama }}</td>
+                <td>{{ $item->alamat }}</td>
+                <td>{{ $item->no_hp }}</td>
+                <td>
+                    {{ $item->keluhan }}
+                </td>
+            </tr>
+        @endforeach
+
+    </tbody>
+
+</table>
+@endcan
 <div  id="editModal" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog "  role="document">
         <div class="modal-content" id="detail_edit">

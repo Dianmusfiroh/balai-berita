@@ -118,7 +118,7 @@ $("#myTable").DataTable({
 $(document).ready(function () {
     $("#role").on('change', function() {
         var balai = @php echo $balai @endphp ;
-        if ($(this).val() == 'petugas') {
+        if ($(this).val() == 'petugas' || $(this).val() == 'ketua') {
             $("#petugas").show();
             $.each(balai, function(index) {
                 var tes = `<option value="${balai[index].id}">${balai[index].nama_balai}</option>` ;

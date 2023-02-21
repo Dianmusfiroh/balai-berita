@@ -136,8 +136,8 @@
     @foreach ($kawasan as $k)
         <h1>{{ $k->judul }}</h1>
         <span>( <em> {{ $k->lokasi }} </em>)</span>
-        <div class="d-flex mt-2 align-items-stretch justify-content-center">
-            <img class="img-fluid d-flex align-items-stretch justify-content-center justify-content-lg-start"
+        <div class=" d-flex mt-2 align-items-stretch justify-content-center">
+            <img class=" col-md-8 img-fluid d-flex align-items-stretch justify-content-center justify-content-lg-start"
                 src="{{ asset('storage/images/kawasan/'.$k->foto) }}" style="background-size: cover; min-height: 400px;"
                 alt="..." />
 

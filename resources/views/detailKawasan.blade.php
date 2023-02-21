@@ -5,12 +5,10 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Portfolio Details - Lonely Bootstrap Template</title>
+  <title>Detail Kawasan</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   <!-- Favicons -->
-  <link href="{{ asset('template/Lonely/assets/img/favicon.png') }}" rel="icon">
-  <link href="{{ asset('template/Lonely/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
@@ -71,7 +69,7 @@
             <span>( <em>{{ $kawasan->lokasi }}</em> )</span>
 
           <div class="col-lg-12">
-            <div class="portfolio-details-slider swiper">
+            <div class="portfolio-details-slider swiper col-lg-10">
               <div class="swiper-wrapper align-items-center">
                 <div class="swiper-slide">
                     <img class="" src="{{ asset('storage/images/kawasan/' . $kawasan->foto) }}" alt="Card image cap">
@@ -84,9 +82,7 @@
 
      
             <div class="portfolio-description">
-              <p>
                 {!! $kawasan->deskripsi !!}
-            </p>
             </div>
 
         </div>

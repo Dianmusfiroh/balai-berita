@@ -18,7 +18,9 @@ class KeluhanController extends Controller
     {
         $modul = $this->modul;
         $data = Keluhan::where('id_balai',Auth::user()->id_balai)->get();
-        return view('keluhan.index',compact('modul','data'));
+        $sukses = Keluhan::where('id_balai',Auth::user()->id_balai)->where('status','1')->get();
+
+        return view('keluhan.index',compact('modul','data','sukses'));
     }
     public function store(Request $request)
     {

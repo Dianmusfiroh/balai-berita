@@ -5,12 +5,10 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Portfolio Details - Lonely Bootstrap Template</title>
+  <title>Detail Berita</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   <!-- Favicons -->
-  <link href="{{ asset('template/Lonely/assets/img/favicon.png') }}" rel="icon">
-  <link href="{{ asset('template/Lonely/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
@@ -70,23 +68,18 @@
         <div class="row gy-4">
             <h2>{{ $berita->judul }}</h2>
 
-          <div class="col-lg-12">
-            <div class="portfolio-details-slider swiper">
-              <div class="swiper-wrapper align-items-center">
+          <div class="">
+            <div class="portfolio-details-slider swiper  col-lg-10">
+              <div class="swiper-wrapper align-items-center ">
                 <div class="swiper-slide">
-                    <img class="" src="{{ asset('storage/images/informasi/' . $berita->foto) }}" alt="Card image cap">
+                    <img class=" " src="{{ asset('storage/images/informasi/' . $berita->foto) }}" alt="Card image cap">
                 </div>
-
               </div>
               <div class="swiper-pagination"></div>
             </div>
           </div>
-
-     
             <div class="portfolio-description">
-              <p>
                 {!! $berita->deskripsi !!}
-            </p>
             </div>
 
         </div>
