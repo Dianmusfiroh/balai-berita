@@ -61,7 +61,7 @@
                             <option >Pilih Role</option>
                             <option value="admin">Admin</option>
                             <option value="petugas">Admin Balai</option>
-                            <option value="kepala">Kepala Balai</option>
+                            <option value="ketua">Kepala Balai</option>
                         </select>
                     </div>
                 </div>
