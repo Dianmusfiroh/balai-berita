@@ -16,6 +16,15 @@
     </section>
 @endsection
 @section('nama-balai')
+<a href="/">
+    @if ($dataBalai->logo_balai == null)
+        <img class="img-fluid" src="{{ asset('storage/images/Logo Balai.png') }}"
+            style="background-size: cover; min-height: 40px;" alt="..." />
+    @else
+        <img src="{{ asset('storage/images/logo_balai/' . $dataBalai->logo_balai) }}"
+            style="background-size: cover; min-height: 40px;" height="10" alt="..." class=" img-fluid rounded">
+    @endif
+</a>
 @endsection
 @section('profil')
     <div class="section-title">
