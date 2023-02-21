@@ -62,7 +62,7 @@ class KeluhanController extends Controller
         $data->status = '1';
         $data->tanggapan = 'Keluhan Diterima';
         $data->save();
-        $link ='https://api.whatsapp.com/send?phone=62{{ $data->no_hp }}&text=Keluhan%20Anda%20Sedang%20Diproses' ;
+        $link ='https://api.whatsapp.com/send?phone=62'.$data->no_hp.'&text=Keluhan%20Anda%20Sedang%20Diproses' ;
        return Redirect::to($link);
 
     }
