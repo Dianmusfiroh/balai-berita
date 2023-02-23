@@ -81,6 +81,22 @@
         </div>
     </div>
 @endsection
+@section('Tugas')
+    <div class="section-title">
+        <h2>Tugas Balai</h2>
+    </div>
+    <div class="row resume">
+        <div class="col-lg-12">
+            <h3 class="resume-title">Tugas Balai</h3>
+            @foreach ($tugasBalai as $tb)
+                <div class="resume-item pb-0">
+                        <p><em>{!! $tb->nama_tugas !!}</em></p>
+                </div>
+            @endforeach
+        </div>
+   
+    </div>
+@endsection
 @section('Peraturan')
     <div class="section-title">
         <h2>Peraturan</h2>

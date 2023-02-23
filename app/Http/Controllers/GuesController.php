@@ -8,6 +8,7 @@ use App\Models\Berita;
 use App\Models\Kawasan;
 use App\Models\Peraturan;
 use App\Models\StrukurOrganisasi;
+use App\Models\TugasBalai;
 use App\Models\VisiMisi;
 use Illuminate\Http\Request;
 
@@ -37,7 +38,8 @@ class GuesController extends Controller
         $kawasan = Kawasan::where('id_balai',$id)->get();
         // $stuktur = StrukurOrganisasi::where('id_balai',$id)->get();
         $baganStruktur = BaganStrukurOrganisasi::where('id_balai',$id)->get();
-        return view('detailProfilBalai',compact('baganStruktur','dataBalai','visi','misi','peraturan','informasi','kawasan'));
+        $tugasBalai = TugasBalai::where('id_balai',$id)->get();
+        return view('detailProfilBalai',compact('tugasBalai','baganStruktur','dataBalai','visi','misi','peraturan','informasi','kawasan'));
     }
     public function detailBerita($id)
     {

@@ -33,9 +33,9 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-//   Route::get('/detailProfilBalai/{id}', function () {
-//     return view('detailProfilBalai');
-// })->name('detailProfilBalai');
+  Route::get('/login2', function () {
+    return view('login2');
+})->name('login2');
       
 Route::get('/', [GuesController::class, 'index'])->name('gues');
 Route::get('detailProfilBalai/{id}', [GuesController::class, 'detailBalai'])->name('detailProfilBalai');

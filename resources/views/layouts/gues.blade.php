@@ -64,6 +64,9 @@
               <button class="nav-link" id="Visi-Misi-tab" data-bs-toggle="tab" data-bs-target="#Visi-Misi" type="button" role="tab" aria-controls="Visi-Misi" aria-selected="false">Visi-Misi</button>
             </li>
             <li class="nav-item" role="presentation">
+              <button class="nav-link" id="Tugas-tab" data-bs-toggle="tab" data-bs-target="#Tugas" type="button" role="tab" aria-controls="Tugas" aria-selected="false">Tugas Balai</button>
+            </li>
+            <li class="nav-item" role="presentation">
               <button class="nav-link" id="Struktur-tab" data-bs-toggle="tab" data-bs-target="#Struktur" type="button" role="tab" aria-controls="Struktur" aria-selected="false">Struktur</button>
             </li>
             <li class="nav-item" role="presentation">
@@ -160,6 +163,13 @@
           <div class="container my-4">
             <div class="row no-gutters">
                 @yield('Visi-Misi')
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane " id="Tugas" role="tabpanel" aria-labelledby="Tugas-tab">
+          <div class="container my-4">
+            <div class="row no-gutters">
+                @yield('Tugas')
             </div>
           </div>
         </div>

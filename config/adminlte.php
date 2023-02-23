@@ -64,7 +64,7 @@ return [
     */
 
     'logo' => '<b>Dasi</b>PEKAN',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => 'https://upload.wikimedia.org/wikipedia/commons/6/63/Lambang_Kementerian_Lingkungan_Hidup_dan_Kehutanan.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
