@@ -556,24 +556,24 @@ section {
   line-height: 20px;
   display: block;
   font-weight: 700;
-  color: #2c4964;
+  color: #070311;
   margin-left: 50px;
   font-family: "Playfair Display", serif;
 }
 
 .about .content .count-box p {
-  padding: 15px 0 0 0;
-  margin: 0 0 0 50px;
-  font-family: "Playfair Display", serif;
+  padding: 5px 0 0 0;
+  margin: 0 0 0 0px;
+  font-family: "Open Sans", serif;
   font-size: 14px;
-  color: #437099;
+  color: #070311;
 }
 
 .about .content .count-box a {
   font-weight: 600;
   display: block;
   margin-top: 20px;
-  color: #437099;
+  color: #070311;
   font-size: 15px;
   font-family: "Poppins", sans-serif;
   transition: ease-in-out 0.3s;

@@ -42,11 +42,11 @@
     <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
         <div class="content d-flex flex-column justify-content-center">
             <h3>{{ $dataBalai->nama_balai }}</h3>
-            <p>
-                {{ $dataBalai->alamat }}
+            <p style=" color: #070311">
+                <em>{{ $dataBalai->alamat }} </em>
             </p>
             <div class="row">
-                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                <div class="col-md-12 d-md-flex align-items-md-stretch">
                     <div class="count-box">
                         <h3>Deskripsi</h3>
                         <p>{!! $dataBalai->deskripsi !!}</p>
