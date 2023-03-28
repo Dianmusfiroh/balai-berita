@@ -69,4 +69,9 @@ class KeluhanController extends Controller
     public function destroy(){
 
     }
+    public function show($id)
+    {
+        $modul = $this->modul;
+        $data = Keluhan::find($id);
+        return view('keluhan.edit',compact('data','modul'));    }
 }

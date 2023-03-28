@@ -174,14 +174,15 @@
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Form Keluhan</h2>
                 </div>
-                <form id="contactForm" action="{{ route('keluhan.store')}}" method="post">
+               
+                <form id="contactForm" action="{{ route('keluhan.store')}}"  method="post">
                     @csrf
                     <div class="row align-items-stretch mb-5">
                         <div class="col-md-6">
                         <div class="form-group">
                             <!-- Name input-->
-                            <select name="id_balai" id="id_balai" class="form-control" data-sb-validations="required">
-                                <option >Pilih Nama Balai</option>
+                            <select name="id_balai" id="id_balai" class="form-control" required data-sb-validations="required">
+                                <option value="">Pilih Nama Balai</option>
                                 @foreach ($dataBalai as $b )
                                     <option value="{{ $b->id }}">{{ $b->nama_balai }}</option>
                                     
@@ -191,24 +192,24 @@
                         </div>
                         <div class="form-group">
                             <!-- Name input-->
-                            <input class="form-control" id="nama" name="nama" type="text" placeholder="Tuliskan Nama Anda *" data-sb-validations="required" />
+                            <input class="form-control" id="nama" name="nama" required type="text" placeholder="Tuliskan Nama Anda *" data-sb-validations="required" />
                             <div class="invalid-feedback" data-sb-feedback="nama:required">Data Wajib Diisi</div>
                         </div>
                         <div class="form-group">
                             <!-- Email address input-->
-                            <input class="form-control" id="alamat" name="alamat" type="text" placeholder="Tuliskan Alamat Anda*" data-sb-validations="required" />
+                            <input class="form-control" id="alamat" name="alamat" required type="text" placeholder="Tuliskan Alamat Anda*" data-sb-validations="required" />
                             <div class="invalid-feedback" data-sb-feedback="alamat:required">Data Wajib Diisi</div>
                         </div>
                         <div class="form-group mb-md-0">
                             <!-- Phone number input-->
-                            <input class="form-control" name="no_hp" id="phone" type="tel" placeholder="Tuliskan No Hp  *" data-sb-validations="required" />
+                            <input class="form-control" name="no_hp" id="phone" required type="tel" placeholder="Tuliskan No Hp  *" data-sb-validations="required" />
                             <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group form-group-textarea mb-md-0">
                             <!-- Message input-->
-                            <textarea class="form-control" id="message" name="keluhan" placeholder="Keluhan Anda *" data-sb-validations="required"></textarea>
+                            <textarea class="form-control" id="message" name="keluhan" required placeholder="Keluhan Anda *" data-sb-validations="required"></textarea>
                             <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                         </div>
                     </div>

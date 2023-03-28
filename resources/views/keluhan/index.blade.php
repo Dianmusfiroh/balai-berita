@@ -27,6 +27,7 @@
             <th>No hp</th>
             <th>Status</th>
             <th>Tanggapan</th>
+            <th>Keluhan</th>
             <th>Aksi</th>
         </tr>
     </thead>
@@ -52,12 +53,18 @@
                     @endif
                 </td>
                 <td>
+                    <a href="{{ route($modul.'.show', $item->id) }}" class="" id="btnEdit">Lihat Keluhan</a>
+
+                </td>
+                <td>
                     @if ($item->status == '0')
                     <a href="{{ route('tanggapan', $item->id) }}" target="_blank"  class="btn btn-sm btn-success"><i class="material-icons md-edit"></i> Tanggapi</a>
 
                     @else
                     <i class="fas fa-check-double ms-1"></i>
                     @endif
+
+
                 </td>
             </tr>
         @endforeach
@@ -131,6 +138,25 @@ $("#myTable").DataTable({
     "responsive": true
 });
 
+$('body').on('click', '#btneditFoto', function (event) {
+    event.preventDefault();
+    var me = $(this),
+        title = me.attr('title');
+        alamat = me.attr('alamat');
+        url = me.attr('href');
+        console.log(url);
+    $('#modal-title').text(title);
+    $('#alamat').text(alamat);
+
+    $.ajax({
+        url: url,
+        dataType: 'html',
+        success: function (response) {
+            $('#detail_editFoto').html(response);
+        }
+    });
+    $('#editModalFoto').modal('show');
+});
 $('body').on('click', '#btnEdit', function (event) {
     event.preventDefault();
     var me = $(this),
