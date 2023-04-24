@@ -17,7 +17,7 @@ class DataPetugasController extends Controller
     {
         $modul = $this->modul;
         $balai = Balai::all();
-        $data = User::all();
+        $data = User::where('role','!=','masyarakat')->get();
         return view('dataPetugas.index',compact('modul','balai','data'));
     }
     public function store(Request $request)
