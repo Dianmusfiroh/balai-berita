@@ -7,6 +7,7 @@ use App\Models\Balai;
 use App\Models\Berita;
 use App\Models\Kawasan;
 use App\Models\Peraturan;
+use App\Models\Spesifikasi;
 use App\Models\StrukurOrganisasi;
 use App\Models\TugasBalai;
 use App\Models\VisiMisi;
@@ -50,5 +51,17 @@ class GuesController extends Controller
     {
         $kawasan = Kawasan::find($id);
         return view('detailKawasan',compact('kawasan'));
+    }
+    public function getSpesifikasi(Request $request)
+    {
+        $data = Spesifikasi::where('id_balai',$request->id_balai)->get();
+        if ($data->count() > 0) {
+            foreach ($data as  $value) {
+                echo  '<option value="'.$value->id.'">'.$value->nama_spesifikasi.'</option>';
+            }      
+        } else {
+                echo "<option selected>- Data Tidak Ada, Pilih Yang Lain -</option>";
+        }
+        
     }
 }

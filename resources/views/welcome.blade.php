@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Agency - Start Bootstrap Theme</title>
+        <title>Dashboard Sistem Informasi Pemberdayaan Kawasan Hutan</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -34,7 +34,42 @@
                         <li class="nav-item"><a class="nav-link" href="#about">Informasi</a></li>
                         {{--  <li class="nav-item"><a class="nav-link" href="#team">Dokument</a></li>  --}}
                         <li class="nav-item"><a class="nav-link" href="#team">Peraturan</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                        @if (Auth::user())
+                            @if (Auth::user()->role != 'masyarakat')
+                                <li class="nav-item"><a class="nav-link" href="/home"> {{ Auth::user()->name }}</a></li>
+                                
+                            @else
+                                {{--  <li class="nav-item"><a class="nav-link" href="/"> {{ Auth::user()->name }}</a></li>  --}}
+                                <div class="dropdown">
+                                    <a class=" dropdown-toggle nav-link" href="{{ route('logout') }}" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                        {{ Auth::user()->name }} 
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                                        @php( $logout_url = View::getSection('logout_url') ?? config('adminlte.logout_url', 'logout') )
+
+                                        @if (config('adminlte.use_route_url', false))
+                                            @php( $logout_url = $logout_url ? route($logout_url) : '' )
+                                        @else
+                                            @php( $logout_url = $logout_url ? url($logout_url) : '' )
+                                        @endif
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                <i class="fa fa-fw fa-power-off text-red"></i>
+                                                {{ __('adminlte::adminlte.log_out') }}
+                                            </a>
+                                            <form id="logout-form" action="{{ $logout_url }}" method="POST" style="display: none;">
+                                                @if(config('adminlte.logout_method'))
+                                                    {{ method_field(config('adminlte.logout_method')) }}
+                                                @endif
+                                                {{ csrf_field() }}
+                                            </form>
+                                        </li>
+                                    </ul>
+                                  </div>
+                            @endif
+                        @else
+                            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -175,6 +210,7 @@
                     <h2 class="section-heading text-uppercase">Form Keluhan</h2>
                 </div>
                
+                @if (Auth::user())
                 <form id="contactForm" action="{{ route('keluhan.store')}}"  method="post">
                     @csrf
                     <div class="row align-items-stretch mb-5">
@@ -189,6 +225,13 @@
                                 @endforeach
                             </select>
                             <div class="invalid-feedback" data-sb-feedback="id_balai:required">Data Wajib Diisi</div>
+                        </div>
+
+                        <div class="form-group">
+                            <!-- Name input-->
+                            <select name="spesifikasi" id="spesifikasi" class="form-control" required data-sb-validations="required" >
+                            </select>
+                            <div class="invalid-feedback" data-sb-feedback="spesifikasi:required">Data Wajib Diisi</div>
                         </div>
                         <div class="form-group">
                             <!-- Name input-->
@@ -218,6 +261,56 @@
                     <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase " type="submit">Kirim Keluhan</button></div>
 
                 </form>
+                @else
+                <h4 class="text-warning">Login Terlebih Dahulu!!!</h4>
+                <form id="contactForm" action="{{ route('keluhan.store')}}"  method="post">
+                    @csrf
+
+                    <div class="row align-items-stretch mb-5">
+                        <div class="col-md-6">
+                        <div class="form-group">
+                            <!-- Name input-->
+                            <select name="id_balai" id="id_balai" class="form-control" required data-sb-validations="required" disabled>
+                                <option value="">Pilih Nama Balai</option>
+                                @foreach ($dataBalai as $b )
+                                    <option value="{{ $b->id }}">{{ $b->nama_balai }}</option>
+                                    
+                                @endforeach
+                            </select>
+                            <div class="invalid-feedback" data-sb-feedback="id_balai:required">Data Wajib Diisi</div>
+                        </div>
+                        
+                   
+                        <div class="form-group">
+                            <!-- Name input-->
+                            <input disabled class="form-control" id="nama" name="nama" required type="text" placeholder="Tuliskan Nama Anda *" data-sb-validations="required" />
+                            <div class="invalid-feedback" data-sb-feedback="nama:required">Data Wajib Diisi</div>
+                        </div>
+                        <div class="form-group">
+                            <!-- Email address input-->
+                            <input disabled class="form-control" id="alamat" name="alamat" required type="text" placeholder="Tuliskan Alamat Anda*" data-sb-validations="required" />
+                            <div class="invalid-feedback" data-sb-feedback="alamat:required">Data Wajib Diisi</div>
+                        </div>
+                        <div class="form-group mb-md-0">
+                            <!-- Phone number input-->
+                            <input disabled class="form-control" name="no_hp" id="phone" required type="tel" placeholder="Tuliskan No Hp  *" data-sb-validations="required" />
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group form-group-textarea mb-md-0">
+                            <!-- Message input-->
+                            <textarea disabled class="form-control" id="message" name="keluhan" required placeholder="Keluhan Anda *" data-sb-validations="required"></textarea>
+                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                        </div>
+                    </div>
+                    </div>
+                  
+                    <div class="text-center"><button disabled class="btn btn-primary btn-xl text-uppercase " type="submit">Kirim Keluhan</button></div>
+
+                </form>
+                @endif
+             
                 <!-- * * * * * * * * * * * * * * *-->
                 <!-- * * SB Forms Contact Form * *-->
                 <!-- * * * * * * * * * * * * * * *-->
@@ -475,6 +568,8 @@
                 "responsive": true
             });
             $(document).ready(function () {
+                $('#spesifikasi').hide(); 
+
                 $('.open-popup').magnificPopup({
                 type: 'inline',
                 fixContentPos: true,
@@ -484,7 +579,29 @@
                 removalDelay: 160,
                 mainClass: 'mfp-fade'
                 });
+                $('#id_balai').on('change', function() {
+                    var cmbVal = $('#id_balai :selected').val();
+                    if (cmbVal == '' ) {
+                        $('#spesifikasi').hide(); 
+                    } else {
+                        console.log(cmbVal);
+                        $.ajax({
+                            type: "GET",
+                            url: "{{ route('getSpesifikasi') }}",
+                            data:  {id_balai: cmbVal},
+                            success: function (data,response) {
+                                $('#spesifikasi').show(); 
+                                $('#spesifikasi').html(data); 
+
+                            }
+                        });
+                    }
+                    
+                });
+         
             })
+            
+
         </script>  
     </body>
    

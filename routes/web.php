@@ -9,6 +9,7 @@ use App\Http\Controllers\GuesController;
 use App\Http\Controllers\KawasanController;
 use App\Http\Controllers\KeluhanController;
 use App\Http\Controllers\PeraturanController;
+use App\Http\Controllers\SpesifikasiController;
 use App\Http\Controllers\StrukturOrganisasiController;
 use App\Http\Controllers\TugasBalaiController;
 use App\Http\Controllers\VisiMisiController;
@@ -42,6 +43,7 @@ Route::get('detailProfilBalai/{id}', [GuesController::class, 'detailBalai'])->na
 Route::get('detailBerita/{id}', [GuesController::class, 'detailBerita'])->name('detailBerita');
 Route::get('detailKawasan/{id}', [GuesController::class, 'detailKawasan'])->name('detailKawasan');
 Route::resource('keluhan', KeluhanController::class);
+Route::get('getSpesifikasi/', [GuesController::class, 'getSpesifikasi'])->name('getSpesifikasi');
 
 Auth::routes(['verify' => true]);
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -55,6 +57,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('dataMaster/dataBalai', DataBalaiController::class);
     Route::resource('dataMaster/kawasan', KawasanController::class);
     Route::resource('dataMaster/visimisi', VisiMisiController::class);
+    Route::resource('dataMaster/spesifikasi', SpesifikasiController::class);
     Route::resource('berita', BeritaController::class);
     Route::post('dataMaster/dataBalai/storeAlamat', [DataBalaiController::class, 'storeAlamat'])->name('storeAlamat');
     Route::post('dataMaster/dataBalai/storeFoto', [DataBalaiController::class, 'storeFoto'])->name('storeFoto');

@@ -2,10 +2,10 @@
 
 return [
 
-    'full_name'                   => 'Full name',
+    'full_name'                   => 'Nama Lengkap',
     'email'                       => 'Email',
     'password'                    => 'Password',
-    'retype_password'             => 'Retype password',
+    'retype_password'             => 'Ulangi password',
     'remember_me'                 => 'Remember Me',
     'register'                    => 'Register',
     'register_a_new_membership'   => 'Register a new membership',

@@ -16,7 +16,7 @@
 
 
 @section('card-body')
-@can('isPetugas')
+@can('isKetua')
     
 <table class="table table-bordered table-striped table-sm text-center" id="myTable">
     <thead>
@@ -75,7 +75,7 @@
 <!-- Modal -->
 @endcan
 
-@can('isKetua')
+{{--  @can('isKetua')
 <table class="table table-bordered table-striped table-sm text-center" id="myTable">
     <thead>
         <tr>
@@ -103,7 +103,7 @@
     </tbody>
 
 </table>
-@endcan
+@endcan  --}}
 <div  id="editModal" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog "  role="document">
         <div class="modal-content" id="detail_edit">

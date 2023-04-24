@@ -361,6 +361,10 @@ return [
                 [
                     'text' => 'Data Kawasan',
                     'url'  => 'dataMaster/kawasan',
+                ], 
+                [
+                    'text' => 'Data Spesifikasi',
+                    'url'  => 'dataMaster/spesifikasi',
                 ],                
             ]
         ],
@@ -371,7 +375,7 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'can' => ['isPetugas','isKetua'],
+            'can' => ['isKetua'],
             'text' => 'Keluhan',
             'url'  => 'keluhan',
             'icon' => 'fas fa-fw fa-lock',

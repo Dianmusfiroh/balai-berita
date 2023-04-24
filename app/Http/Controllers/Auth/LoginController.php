@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
@@ -38,6 +41,12 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+      
+    }
+    public function index()
+    {
+      
+    
     }
     protected function sendFailedLoginResponse(Request $request)
     {
@@ -45,6 +54,7 @@ class LoginController extends Controller
             'name' => [trans('auth.failed')],
         ]);
     }
+
     /**
      * Get the login username to be used by the controller.
      *
@@ -52,9 +62,19 @@ class LoginController extends Controller
      */
     public function username()
     {
+    //   if (request()->input('role') == 'admin') {
         $login = request()->input('name');
         $field = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'name';
         request()->merge([$field => $login]);
         return $field;
+    //   } else {
+    //     $login = request()->input('name');
+    //     $field = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'name';
+    //     request()->merge([$field => $login]);
+    //     return view('welcome');
+    //   }
+    //   dd( request()->input('role'));
+        
+       
     }
 }
