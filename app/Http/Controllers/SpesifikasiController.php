@@ -15,7 +15,7 @@ class SpesifikasiController extends Controller
     }
     public function index()
     {
-        $data = Spesifikasi::all();
+        $data = Spesifikasi::where('id_balai', Auth::user()->id_balai)->get( );
         $modul = $this->modul;
       return view('spesifikasi.index', compact('data','modul'));
     }
@@ -68,7 +68,7 @@ class SpesifikasiController extends Controller
                 ->route('spesifikasi.index')
                 ->with([
                     'success' => 'Data Berhasil Diubah'
-                ]);
+                ]); 
         } else {
             return redirect()
                 ->back()
